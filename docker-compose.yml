@@ -1,0 +1,81 @@
+version: '3.4'
+
+networks:
+  my-app-network:
+    driver: bridge
+
+services:
+  voeconsulting.flame.basketcontext.api:
+    image: ${DOCKER_REGISTRY-}voeconsultingflamebasketcontextapi
+    build:
+      context: .
+      dockerfile: src/VOEConsulting.Flame.BasketContext.Api/Dockerfile
+    networks:
+      - my-app-network
+    depends_on:
+      - sqlserver
+      - kafka1
+
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    ports:
+      - "1444:1433"
+    environment:
+      ACCEPT_EULA: "Y"
+      SA_PASSWORD: "KENhaLynconUngUIstRI"
+    networks:
+      - my-app-network
+    volumes:
+      - sql_data:/var/opt/mssql
+
+  zookeeper:
+    image: bitnami/zookeeper:3.8
+    ports:
+      - "2181:2181"
+    volumes:
+      - zookeeper_data:/bitnami
+    environment:
+      ALLOW_ANONYMOUS_LOGIN: "yes"
+    networks:
+      - my-app-network
+
+  kafka1:
+    image: bitnami/kafka:3.6
+    volumes:
+      - kafka_data1:/bitnami
+    environment:
+      KAFKA_CFG_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_CFG_LISTENERS: INTERNAL://:9092,EXTERNAL://0.0.0.0:29092
+      KAFKA_CFG_ADVERTISED_LISTENERS: INTERNAL://kafka1:9092,EXTERNAL://localhost:29092
+      KAFKA_CFG_LISTENER_SECURITY_PROTOCOL_MAP: INTERNAL:PLAINTEXT,EXTERNAL:PLAINTEXT
+      KAFKA_CFG_INTER_BROKER_LISTENER_NAME: INTERNAL
+      KAFKA_CFG_AUTO_CREATE_TOPICS_ENABLE: 'true'
+      ALLOW_PLAINTEXT_LISTENER: 'yes'
+    ports:
+      - "9092:9092"
+      - "29092:29092"
+    depends_on:
+      - zookeeper
+    networks:
+      - my-app-network
+
+  kafka-ui:
+    image: provectuslabs/kafka-ui:latest
+    ports:
+      - 9100:8080
+    environment:
+      KAFKA_CLUSTERS_0_NAME: local
+      KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS: kafka1:9092
+      KAFKA_CLUSTERS_0_ZOOKEEPER: zookeeper:2181
+    depends_on:
+      - kafka1
+    networks:
+      - my-app-network
+
+volumes:
+  zookeeper_data:
+    driver: local
+  kafka_data1:
+    driver: local
+  sql_data:
+    driver: local

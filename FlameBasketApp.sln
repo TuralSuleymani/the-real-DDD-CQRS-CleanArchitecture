@@ -1,0 +1,99 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.35122.118
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{0CB68504-0F37-431E-B512-6E8B230B776F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{4746A963-03C3-4CC0-87A6-DF0618E058BA}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VOEConsulting.Flame.BasketContext.Domain", "src\VOEConsulting.Flame.BasketContext.Domain\VOEConsulting.Flame.BasketContext.Domain.csproj", "{31E2D5D7-8A50-4D35-AD25-3825DAA17254}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VOEConsulting.Flame.BasketContext.Tests.Unit", "tests\VOEConsulting.Flame.BasketContext.Tests.Unit\VOEConsulting.Flame.BasketContext.Tests.Unit.csproj", "{AA56B415-5D2D-475D-896E-10A5F1BCB2FC}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VOEConsulting.Flame.BasketContext.Tests.Data", "tests\VOEConsulting.Flame.BasketContext.Tests.Data\VOEConsulting.Flame.BasketContext.Tests.Data.csproj", "{24B49C84-052C-41C4-A844-9F9D6A53F8E9}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VOEConsulting.Flame.Common.Domain", "src\VOEConsulting.Flame.Common.Domain\VOEConsulting.Flame.Common.Domain.csproj", "{E1A68B49-C432-47C0-B633-A2EE9BE6F6FF}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VOEConsulting.Flame.BasketContext.Api", "src\VOEConsulting.Flame.BasketContext.Api\VOEConsulting.Flame.BasketContext.Api.csproj", "{6B876145-A825-44DB-999C-0B77E6F6A1C9}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VOEConsulting.Flame.BasketContext.Application", "src\VOEConsulting.Flame.BasketContext.Application\VOEConsulting.Flame.BasketContext.Application.csproj", "{5EFA0332-E30C-4B4A-949E-4CECA6665B22}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VOEConsulting.Flame.BasketContext.Infrastructure", "src\VOEConsulting.Flame.BasketContext.Infrastructure\VOEConsulting.Flame.BasketContext.Infrastructure.csproj", "{4B8B53C8-4C5B-4A6A-AE96-4A9810413E28}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VOEConsulting.Flame.Common.Core", "src\VOEConsulting.Flame.Common.Core\VOEConsulting.Flame.Common.Core.csproj", "{CD8C4376-E775-45DC-829B-F656E5F2C79D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{810F474E-A080-4A89-892A-C85D6C8FDC57}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "images", "images", "{D6480F6B-2CD9-47D1-A5A3-790C21B13396}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\..\..\Downloads\System Boundries.excalidraw = ..\..\..\..\Downloads\System Boundries.excalidraw
+		..\..\..\..\Downloads\SystemBoundriesBasketApi.png = ..\..\..\..\Downloads\SystemBoundriesBasketApi.png
+	EndProjectSection
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{893C5B51-A811-4393-BDEA-8C7AD9427918}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{31E2D5D7-8A50-4D35-AD25-3825DAA17254}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{31E2D5D7-8A50-4D35-AD25-3825DAA17254}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{31E2D5D7-8A50-4D35-AD25-3825DAA17254}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{31E2D5D7-8A50-4D35-AD25-3825DAA17254}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AA56B415-5D2D-475D-896E-10A5F1BCB2FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA56B415-5D2D-475D-896E-10A5F1BCB2FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA56B415-5D2D-475D-896E-10A5F1BCB2FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA56B415-5D2D-475D-896E-10A5F1BCB2FC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{24B49C84-052C-41C4-A844-9F9D6A53F8E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{24B49C84-052C-41C4-A844-9F9D6A53F8E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{24B49C84-052C-41C4-A844-9F9D6A53F8E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{24B49C84-052C-41C4-A844-9F9D6A53F8E9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E1A68B49-C432-47C0-B633-A2EE9BE6F6FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E1A68B49-C432-47C0-B633-A2EE9BE6F6FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E1A68B49-C432-47C0-B633-A2EE9BE6F6FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E1A68B49-C432-47C0-B633-A2EE9BE6F6FF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6B876145-A825-44DB-999C-0B77E6F6A1C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6B876145-A825-44DB-999C-0B77E6F6A1C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6B876145-A825-44DB-999C-0B77E6F6A1C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6B876145-A825-44DB-999C-0B77E6F6A1C9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5EFA0332-E30C-4B4A-949E-4CECA6665B22}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5EFA0332-E30C-4B4A-949E-4CECA6665B22}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5EFA0332-E30C-4B4A-949E-4CECA6665B22}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5EFA0332-E30C-4B4A-949E-4CECA6665B22}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4B8B53C8-4C5B-4A6A-AE96-4A9810413E28}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4B8B53C8-4C5B-4A6A-AE96-4A9810413E28}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4B8B53C8-4C5B-4A6A-AE96-4A9810413E28}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4B8B53C8-4C5B-4A6A-AE96-4A9810413E28}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CD8C4376-E775-45DC-829B-F656E5F2C79D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD8C4376-E775-45DC-829B-F656E5F2C79D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD8C4376-E775-45DC-829B-F656E5F2C79D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD8C4376-E775-45DC-829B-F656E5F2C79D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{893C5B51-A811-4393-BDEA-8C7AD9427918}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{893C5B51-A811-4393-BDEA-8C7AD9427918}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{893C5B51-A811-4393-BDEA-8C7AD9427918}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{893C5B51-A811-4393-BDEA-8C7AD9427918}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{31E2D5D7-8A50-4D35-AD25-3825DAA17254} = {0CB68504-0F37-431E-B512-6E8B230B776F}
+		{AA56B415-5D2D-475D-896E-10A5F1BCB2FC} = {4746A963-03C3-4CC0-87A6-DF0618E058BA}
+		{24B49C84-052C-41C4-A844-9F9D6A53F8E9} = {4746A963-03C3-4CC0-87A6-DF0618E058BA}
+		{E1A68B49-C432-47C0-B633-A2EE9BE6F6FF} = {0CB68504-0F37-431E-B512-6E8B230B776F}
+		{6B876145-A825-44DB-999C-0B77E6F6A1C9} = {0CB68504-0F37-431E-B512-6E8B230B776F}
+		{5EFA0332-E30C-4B4A-949E-4CECA6665B22} = {0CB68504-0F37-431E-B512-6E8B230B776F}
+		{4B8B53C8-4C5B-4A6A-AE96-4A9810413E28} = {0CB68504-0F37-431E-B512-6E8B230B776F}
+		{CD8C4376-E775-45DC-829B-F656E5F2C79D} = {0CB68504-0F37-431E-B512-6E8B230B776F}
+		{D6480F6B-2CD9-47D1-A5A3-790C21B13396} = {810F474E-A080-4A89-892A-C85D6C8FDC57}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {266CDB49-A113-4342-9A1C-DFCFFD67C743}
+	EndGlobalSection
+EndGlobal

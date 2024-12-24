@@ -1,0 +1,37 @@
+version: '3.4'
+
+services:
+  voeconsulting.flame.basketcontext.api:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_HTTP_PORTS=80
+      - ASPNETCORE_HTTPS_PORTS=443
+      - ConnectionStrings__DefaultConnection=Server=sqlserver,1433;Database=BasketDb;User=sa;Password=KENhaLynconUngUIstRI;Encrypt=true;TrustServerCertificate=true
+      - Kafka__BootstrapServers=kafka1:9092
+      - Kafka__DefaultTopic=integration-events
+    ports:
+      - "8080:80"
+      - "8081:443"
+    volumes:
+      - ${APPDATA}/Microsoft/UserSecrets:/home/app/.microsoft/usersecrets:ro
+      - ${APPDATA}/ASP.NET/Https:/home/app/.aspnet/https:ro
+    networks:
+      - my-app-network
+
+  sqlserver:
+    ports:
+      - "1444:1433"
+    networks:
+      - my-app-network
+
+  zookeeper:
+    networks:
+      - my-app-network
+
+  kafka1:
+    networks:
+      - my-app-network
+
+  kafka-ui:
+    networks:
+      - my-app-network

@@ -1,0 +1,11 @@
+{
+  "profiles": {
+    "Docker Compose": {
+      "commandName": "DockerCompose",
+      "commandVersion": "1.0",
+      "serviceActions": {
+        "voeconsulting.flame.basketcontext.api": "StartDebugging"
+      }
+    }
+  }
+}
