@@ -26,11 +26,10 @@ Built with **C#**, this application demonstrates how to structure software with 
 - [Getting Started](#getting-started)
 - [Project Structure](#project-structure)
 - [Usage](#usage)
-- [Contributing](#contributing)
-- [License](#license)
 - [Watch and Learn](#watch-and-learn)
 - [About the Author](#about-the-author)
-
+- [Contributing](#contributing)
+- [License](#license)
 ---
 
 ## ✨ Features
@@ -329,24 +328,6 @@ By using these patterns, the **Basket Bounded Context** provides a real-world im
    ```
 ---
 
-## 🤝 Contributing
-
-Contributions are welcome! Please follow these steps:
-
-1. Fork the repository.
-2. Create a new branch (`feature/your-feature`).
-3. Commit your changes.
-4. Push the branch.
-5. Open a pull request.
-
----
-
-## 📝 License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
-
----
-
 ## 🎥 Watch and Learn
 
 To better understand Domain-Driven Design (DDD), Clean Architecture, and the concepts mentioned in this repository, check out these related videos from my YouTube channel:
@@ -393,5 +374,23 @@ If you found this project helpful or have any questions, feel free to connect wi
 - [**Facebook**](https://www.facebook.com/suleymanitural) 
  
 Don't forget to ⭐ this repo if you like it!
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome! Please follow these steps:
+
+1. Fork the repository.
+2. Create a new branch (`feature/your-feature`).
+3. Commit your changes.
+4. Push the branch.
+5. Open a pull request.
+
+---
+
+## 📝 License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
 ---
