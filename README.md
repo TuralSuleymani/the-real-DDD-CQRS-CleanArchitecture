@@ -249,19 +249,18 @@ By using these patterns, the **Basket Bounded Context** provides a real-world im
 
 1. **Clone the Repository**:
    ```bash
-   git clone https://github.com/yourusername/basketcontext.git
-   cd basketcontext
+   git clone https://github.com/TuralSuleymani/the-real-DDD-CQRS-CleanArchitecture.git
    ```
 
-2. **Set Up Environment Variables**:
-   Create a `.env` file and configure database connection strings.
-
-3. **Run Database Migrations**:
+2. **Set Up Environment**:
+   Run existing docker-compose file to start Kafka and SQL Server
+   via the command:
    ```bash
-   dotnet ef database update
+   docker-compose up -d
    ```
+   or run it from Visual Studio.
 
-4. **Run the Application**:
+3. **Run the Application**:
    ```bash
    dotnet run --project src/VOEConsulting.Flame.BasketContext.Api
    ```
