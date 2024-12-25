@@ -334,27 +334,27 @@ To better understand Domain-Driven Design (DDD), Clean Architecture, and the con
 
 1. **Podcast with Robert C. Martin: The Creator of Clean Architecture and SOLID Principles**  
    
-   [![Watch on YouTube](https://i.ytimg.com/an_webp/xNgXAQjICpQ/mqdefault_6s.webp?du=3000&sqp=CPzDrLsG&rs=AOn4CLBorVK4mMZJpBDKEoiJi_BokHjFTw)](https://youtu.be/xNgXAQjICpQ?si=HbPefWtLg4F2vzqC)  
+   [![Watch on YouTube](https://i.ytimg.com/an_webp/xNgXAQjICpQ/mqdefault_6s.webp?du=3000&sqp=CMCNr7sG&rs=AOn4CLC6wWVyUTGPc-_BaTDLdrccNFQmww)](https://youtu.be/xNgXAQjICpQ?si=HbPefWtLg4F2vzqC)  
    *A deep dive into Clean Architecture, SOLID principles, and building maintainable systems.*
 
 2. **Podcast with Mads Torgersen: The Man Behind the C# Language**  
    
-   [![Watch on YouTube](https://i.ytimg.com/an_webp/2OSc8saeekM/mqdefault_6s.webp?du=3000&sqp=CKjKrLsG&rs=AOn4CLA-uqJxxjB_liuUNtoH8kPhfNL2oA)](https://youtu.be/2OSc8saeekM?si=Dy51ukYgJxOu016i)  
+   [![Watch on YouTube](https://i.ytimg.com/an_webp/2OSc8saeekM/mqdefault_6s.webp?du=3000&sqp=CMCGr7sG&rs=AOn4CLBxwykBQ98NllbHHzy_v0rhWb3FRQ)](https://youtu.be/2OSc8saeekM?si=Dy51ukYgJxOu016i)  
    *Explore the evolution of C#, its features, and its application in modern software development.*
 
 3. **Podcast with Rebecca Wirfs-Brock: The Creator of Responsibility-Driven Design**  
    
-   [![Watch on YouTube](https://i.ytimg.com/an_webp/Oi1UOnCfxJo/mqdefault_6s.webp?du=3000&sqp=CKLJrLsG&rs=AOn4CLDLbqPNZvxyPrlvyxqc-gkDtLhd-Q)](https://youtu.be/Oi1UOnCfxJo?si=WgYza3vulLrbXJE4)  
+   [![Watch on YouTube](https://i.ytimg.com/an_webp/Oi1UOnCfxJo/mqdefault_6s.webp?du=3000&sqp=CKSPr7sG&rs=AOn4CLCmqsgSssFd8UYYKRe1sPGJqvA9Xg)](https://youtu.be/Oi1UOnCfxJo?si=WgYza3vulLrbXJE4)  
    *Insights into Responsibility-Driven Design, Domain-driven Design, and best practices in software design.*
 
 4. **An Elegant Introduction to Domain-Driven Design (DDD) and Its Patterns**  
    
-   [![Watch on YouTube](https://i.ytimg.com/an_webp/aBtMvQdb3vs/mqdefault_6s.webp?du=3000&sqp=CKqprLsG&rs=AOn4CLCAVoUf1N_NARBiAEeSK9sRVcoIBQ)](https://youtu.be/aBtMvQdb3vs?si=tHbKd6ME72I-AVmz)  
+   [![Watch on YouTube](https://i.ytimg.com/an_webp/aBtMvQdb3vs/mqdefault_6s.webp?du=3000&sqp=CJbnrrsG&rs=AOn4CLAb-KUtw9CS94pzh9cn6NFOrpisMg)](https://youtu.be/aBtMvQdb3vs?si=tHbKd6ME72I-AVmz)  
    *An overview of DDD principles, their patterns, and how they can be applied in real-world projects.*
 
 5. **Master the Result Pattern: The One Video You Must Watch**  
    
-   [![Watch on YouTube](https://i.ytimg.com/an_webp/Pq4XLWxt-T8/mqdefault_6s.webp?du=3000&sqp=CPyurLsG&rs=AOn4CLDJuMq-5hmaDqhwJle-je_Hfm0E4A)](https://youtu.be/Pq4XLWxt-T8?si=pjzKQd1u9T9OJjX4)  
+   [![Watch on YouTube](https://i.ytimg.com/an_webp/Pq4XLWxt-T8/mqdefault_6s.webp?du=3000&sqp=CPeMr7sG&rs=AOn4CLC049i2sGhy-4IPEly4ip0etVVzcQ)](https://youtu.be/Pq4XLWxt-T8?si=pjzKQd1u9T9OJjX4)  
    *A detailed explanation of the Result pattern, its use cases, and implementation in C# projects.*
 
 ---
