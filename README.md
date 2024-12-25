@@ -61,7 +61,7 @@ Built with **C#**, this application demonstrates how to structure software with 
 
 ## Event Storming
 
-<iframe width="768" height="432" src="https://miro.com/app/live-embed/uXjVL5AGgiI=/?moveToViewport=-9219,-1369,15648,7807&embedId=698754203972" frameborder="0" scrolling="no" allow="fullscreen; clipboard-read; clipboard-write" allowfullscreen></iframe>
+[View the Event Storming Board on Miro](https://miro.com/app/live-embed/uXjVL5AGgiI=/?moveToViewport=-9219,-1369,15648,7807&embedId=698754203972)
 
 ---
 
