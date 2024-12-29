@@ -30,8 +30,16 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "images", "images", "{D6480F6B-2CD9-47D1-A5A3-790C21B13396}"
 	ProjectSection(SolutionItems) = preProject
-		..\..\..\..\Downloads\System Boundries.excalidraw = ..\..\..\..\Downloads\System Boundries.excalidraw
-		..\..\..\..\Downloads\SystemBoundriesBasketApi.png = ..\..\..\..\Downloads\SystemBoundriesBasketApi.png
+		images\me_and_mads_torgersen.gif = images\me_and_mads_torgersen.gif
+		images\me_and_mark_seemann.gif = images\me_and_mark_seemann.gif
+		images\me_and_rebecca_wirfs_brock.gif = images\me_and_rebecca_wirfs_brock.gif
+		images\me_and_robert_c_martin.gif = images\me_and_robert_c_martin.gif
+		images\me_on_domain-driven-design.gif = images\me_on_domain-driven-design.gif
+		images\me_on_functional_programming.gif = images\me_on_functional_programming.gif
+		images\me_on_git_project.gif = images\me_on_git_project.gif
+		images\me_on_result_pattern.gif = images\me_on_result_pattern.gif
+		..\..\Downloads\System Boundries.excalidraw = ..\..\Downloads\System Boundries.excalidraw
+		..\..\Downloads\SystemBoundriesBasketApi.png = ..\..\Downloads\SystemBoundriesBasketApi.png
 	EndProjectSection
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{893C5B51-A811-4393-BDEA-8C7AD9427918}"

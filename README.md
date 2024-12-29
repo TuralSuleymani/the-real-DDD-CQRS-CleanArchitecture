@@ -1,6 +1,6 @@
 ﻿# A practical, real-world Domain-Driven Design (DDD), Clean Architecture, and CQRS Example: Basket API 🛒
 
-> **A practical, real-world clean architecture, Domain-Driven Design (DDD) application for managing shopping basket operations.**
+> **A practical, real-world clean architecture, Domain-Driven Design (DDD) application with more than 20 design patterns for managing shopping basket operations.**
 
 The **Basket Bounded Context** application is a real-world example of **Domain-driven Design (DDD)**, implementing patterns like **Command Query Responsibility Segregation (CQRS)** and adhering to **Clean Architecture** principles. It is responsible for managing the lifecycle of shopping baskets, including:
 
@@ -50,7 +50,7 @@ Built with **C#**, this application demonstrates how to structure software with 
 - **Domain-Driven Design**:
   - Focus on business rules encapsulated in the domain layer.
   - Events for tracking domain state changes.
-  - Tactical and Strategical DDD patterns: `Ubiquitous  Language`,`Bounded Context`,`Value Objects`, `Entities`, `Aggregates`, `Domain Events`, `Domain Services`, `Application services`, `Repositories`, `Factories`,`Modules`.
+  - Tactical and Strategical DDD patterns: `Ubiquitous Language`,`Bounded Context`,`Value Objects`, `Entities`, `Aggregates`, `Domain Events`, `Domain Services`, `Application services`, `Repositories`, `Factories`,`Modules`.
 
  - **Cross-Cutting Concerns**:
   - **Logging**: Centralized and consistent logging for debugging and monitoring.
@@ -332,29 +332,44 @@ By using these patterns, the **Basket Bounded Context** provides a real-world im
 
 To better understand Domain-Driven Design (DDD), Clean Architecture, and the concepts mentioned in this repository, check out these related videos from my YouTube channel:
 
-1. **Podcast with Robert C. Martin: The Creator of Clean Architecture and SOLID Principles**  
+1. **Video explanation of current github repo with details!**  
    
-   [![Watch on YouTube](https://i.ytimg.com/an_webp/xNgXAQjICpQ/mqdefault_6s.webp?du=3000&sqp=CMCNr7sG&rs=AOn4CLC6wWVyUTGPc-_BaTDLdrccNFQmww)](https://youtu.be/xNgXAQjICpQ?si=HbPefWtLg4F2vzqC)  
-   *A deep dive into Clean Architecture, SOLID principles, and building maintainable systems.*
+   [![Watch on YouTube](images/me_on_git_project.gif)](https://youtu.be/TjoNaJ7n4Vg?si=bSOvy9E6wEO4-wGV)  
+   *Learn more about current github repository; I'm explanation DDD(Domain-driven Design) and Clean Architecture behind this github project.*
 
-2. **Podcast with Mads Torgersen: The Man Behind the C# Language**  
+2. **Podcast with Robert C. Martin: The Creator of Clean Architecture and SOLID Principles**  
    
-   [![Watch on YouTube](https://i.ytimg.com/an_webp/2OSc8saeekM/mqdefault_6s.webp?du=3000&sqp=CMCGr7sG&rs=AOn4CLBxwykBQ98NllbHHzy_v0rhWb3FRQ)](https://youtu.be/2OSc8saeekM?si=Dy51ukYgJxOu016i)  
-   *Explore the evolution of C#, its features, and its application in modern software development.*
+   [![Watch on YouTube](images/me_and_robert_c_martin.gif)](https://youtu.be/xNgXAQjICpQ?si=HbPefWtLg4F2vzqC)  
+   *In this episode, I sit down with Robert C. Martin (Uncle Bob), the legendary author of Clean Code and Clean Architecture and creator of the SOLID principles, to explore Object-Oriented Programming, software design, and the future of development.*
 
-3. **Podcast with Rebecca Wirfs-Brock: The Creator of Responsibility-Driven Design**  
+3. **Podcast with Mads Torgersen: The Man Behind the C# Language**  
    
-   [![Watch on YouTube](https://i.ytimg.com/an_webp/Oi1UOnCfxJo/mqdefault_6s.webp?du=3000&sqp=CKSPr7sG&rs=AOn4CLCmqsgSssFd8UYYKRe1sPGJqvA9Xg)](https://youtu.be/Oi1UOnCfxJo?si=WgYza3vulLrbXJE4)  
-   *Insights into Responsibility-Driven Design, Domain-driven Design, and best practices in software design.*
+   [![Watch on YouTube](images/me_and_mads_torgersen.gif)](https://youtu.be/2OSc8saeekM?si=Dy51ukYgJxOu016i)  
+   *Explore the evolution of C#, its features, and its application in modern software development with the Lead Designer of C# language and of course, with me :).*
 
-4. **An Elegant Introduction to Domain-Driven Design (DDD) and Its Patterns**  
+4. **Podcast with Rebecca Wirfs-Brock: The Creator of Responsibility-Driven Design**  
    
-   [![Watch on YouTube](https://i.ytimg.com/an_webp/aBtMvQdb3vs/mqdefault_6s.webp?du=3000&sqp=CJbnrrsG&rs=AOn4CLAb-KUtw9CS94pzh9cn6NFOrpisMg)](https://youtu.be/aBtMvQdb3vs?si=tHbKd6ME72I-AVmz)  
-   *An overview of DDD principles, their patterns, and how they can be applied in real-world projects.*
+   [![Watch on YouTube](images/me_and_rebecca_wirfs_brock.gif)](https://youtu.be/Oi1UOnCfxJo?si=WgYza3vulLrbXJE4)  
+   *In this podcast, I had the privilege to host legendary Rebecca Wirfs-Brock, where we discussed about Domain-Driven Design, Responsibility-driven design, and design heuristics.*
 
-5. **Master the Result Pattern: The One Video You Must Watch**  
+5. **A Deep Dive into Architecture, Functional Programming, and Dependency Injection with Mark Seemann**  
    
-   [![Watch on YouTube](https://i.ytimg.com/an_webp/Pq4XLWxt-T8/mqdefault_6s.webp?du=3000&sqp=CPeMr7sG&rs=AOn4CLC049i2sGhy-4IPEly4ip0etVVzcQ)](https://youtu.be/Pq4XLWxt-T8?si=pjzKQd1u9T9OJjX4)  
+   [![Watch on YouTube](images/me_and_mark_seemann.gif)](https://youtu.be/aBtMvQdb3vs?si=tHbKd6ME72I-AVmz)  
+   *In this episode, I chat with renowned software architect Mark Seemann about modern software development, covering topics like well-designed architecture, Dependency Injection, and functional programming.*
+
+6. **An Elegant Introduction to Domain-Driven Design (DDD) and Its Patterns**  
+   
+   [![Watch on YouTube](images/me_on_domain-driven-design.gif)](https://youtu.be/aBtMvQdb3vs?si=tHbKd6ME72I-AVmz)  
+   *My speech at Software Architecture Conference, where I provided an overview of DDD principles, their patterns, and how they can be applied in real-world projects.*
+
+7. **Functional programming in C# with Railway-Oriented Programming**  
+   
+   [![Watch on YouTube](images/me_on_functional_programming.gif)](https://youtu.be/Pq4XLWxt-T8?si=pjzKQd1u9T9OJjX4)  
+      *A detailed explanation of Functional Programming in C#, its use cases,values, and implementation using Railway-Oriented programming*
+
+8. **Master the Result Pattern: The One Video You Must Watch**  
+   
+   [![Watch on YouTube](images/me_on_result_pattern.gif)](https://youtu.be/Pq4XLWxt-T8?si=pjzKQd1u9T9OJjX4)  
    *A detailed explanation of the Result pattern, its use cases, and implementation in C# projects.*
 
 ---
@@ -371,7 +386,6 @@ If you found this project helpful or have any questions, feel free to connect wi
 - [**Medium**](https://medium.com/@suleymanif.tural)
 - [**Csharp**](https://www.csharp.com/members/tural-suleymani)  
 - [**X (Twitter)**](https://x.com/SuleymaniTural)
-- [**Facebook**](https://www.facebook.com/suleymanitural) 
  
 Don't forget to ⭐ this repo if you like it!
 
