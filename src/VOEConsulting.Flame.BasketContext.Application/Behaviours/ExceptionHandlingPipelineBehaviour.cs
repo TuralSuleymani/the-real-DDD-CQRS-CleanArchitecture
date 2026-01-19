@@ -1,65 +1,63 @@
-﻿using MediatR;
+﻿using FluentValidation;
+using MediatR;
+using System.Diagnostics;
 using VOEConsulting.Flame.Common.Core.Exceptions;
-using VOEConsulting.Flame.Common.Domain.Exceptions;
 
-namespace VOEConsulting.Flame.BasketContext.Application.Behaviours
+public sealed class ExceptionHandlingPipelineBehavior<TRequest, TResponse>
+    : IPipelineBehavior<TRequest, TResponse>
+    where TRequest : notnull, IRequest<TResponse>
+    where TResponse : notnull
 {
-    public class ExceptionHandlingPipelineBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
-     where TRequest : notnull, IRequest<TResponse>
-     where TResponse : notnull
+    public async Task<TResponse> Handle(
+        TRequest request,
+        RequestHandlerDelegate<TResponse> next,
+        CancellationToken cancellationToken)
     {
-        public async Task<TResponse> Handle(
-            TRequest request,
-            RequestHandlerDelegate<TResponse> next,
-            CancellationToken cancellationToken)
+        try
         {
-            try
-            {
-                // Proceed to the next behavior or actual handler
-                return await next();
-            }
-            catch (ValidationException ex)
-            {
-                // Handle validation exceptions by returning a DomainError.Validation
-                var domainError = DomainError.Validation(ex.Message, ex.Errors.ToList());
-                var failureResult = Result.Failure<Guid, IDomainError>(domainError);
+            return await next();
+        }
+        catch (ValidationException ex)
+        {
+            Activity.Current?.SetStatus(ActivityStatusCode.Error, "validation_failed");
+            Activity.Current?.AddException(ex);
+            Activity.Current?.SetTag("error.type", "validation");
+            Activity.Current?.SetTag("validation.error_count", ex.Errors?.Count() ?? 0);
 
-                if (failureResult is TResponse response)
-                {
-                    return response;
-                }
+            var domainError = DomainError.Validation(ex.Message, ex.Errors?.Select(x => x.ErrorMessage).ToList());
+            return CastOrThrow(domainError, ex);
+        }
+        catch (FlameApplicationException ex)
+        {
+            Activity.Current?.SetStatus(ActivityStatusCode.Error, "bad_request");
+            Activity.Current?.AddException(ex);
+            Activity.Current?.SetTag("error.type", "bad_request");
 
-                throw new InvalidCastException("Failed to cast validation error result to the expected TResponse type.");
-            }
-            catch (FlameApplicationException ex)
-            {
-                // Handle application-specific exceptions
-                var domainError = DomainError.BadRequest(ex.Message);
-                var failureResult = Result.Failure<Guid, IDomainError>(domainError);
+            var domainError = DomainError.BadRequest(ex.Message);
+            return CastOrThrow(domainError, ex);
+        }
+        catch (Exception ex)
+        {
+            Activity.Current?.SetStatus(ActivityStatusCode.Error, "unexpected");
+            Activity.Current?.AddException(ex);
+            Activity.Current?.SetTag("error.type", "unexpected");
 
-                if (failureResult is TResponse response)
-                {
-                    return response;
-                }
-
-                throw new InvalidCastException("Failed to cast bad request error result to the expected TResponse type.");
-            }
-            catch (Exception ex)
-            {
-                // Handle unexpected exceptions by returning a DomainError.Unexpected
-                var domainError = DomainError.UnExpected($"An unexpected error occurred: {ex.Message}");
-                var failureResult = Result.Failure<Guid, IDomainError>(domainError);
-
-                if (failureResult is TResponse response)
-                {
-                    return response;
-                }
-
-                throw new InvalidCastException("Failed to cast unexpected error result to the expected TResponse type.");
-            }
+            var domainError = DomainError.UnExpected("An unexpected error occurred.");
+            return CastOrThrow(domainError, ex);
         }
     }
 
+    private static TResponse CastOrThrow(IDomainError domainError, Exception ex)
+    {
+        var failureResult = Result.Failure<Guid, IDomainError>(domainError);
 
+        if (failureResult is TResponse response)
+        {
+            return response;
+        }
 
+        throw new InvalidCastException(
+            $"Failed to cast failure result to {typeof(TResponse).Name} for request {typeof(TRequest).Name}.",
+            ex);
+    }
 }

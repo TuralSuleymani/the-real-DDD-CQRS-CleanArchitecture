@@ -15,8 +15,8 @@ namespace VOEConsulting.Flame.BasketContext.Application
             services.AddMediatR(configuration =>
             {
                 configuration.RegisterServicesFromAssembly(typeof(ServiceCollectionExtensions).Assembly);
-                configuration.AddOpenBehavior(typeof(ExceptionHandlingPipelineBehavior<,>));
                 configuration.AddOpenBehavior(typeof(LoggingPipelineBehaviour<,>));
+                configuration.AddOpenBehavior(typeof(ExceptionHandlingPipelineBehavior<,>));
                 configuration.AddOpenBehavior(typeof(ValidationPipelineBehaviour<,>));
             });
 

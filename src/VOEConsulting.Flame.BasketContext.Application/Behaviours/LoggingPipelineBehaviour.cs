@@ -1,33 +1,86 @@
 ﻿using MediatR;
 using Microsoft.Extensions.Logging;
 using System.Diagnostics;
+using VOEConsulting.Flame.BasketContext.Application.Observability;
 
 namespace VOEConsulting.Flame.BasketContext.Application.Behaviours
 {
-    public class LoggingPipelineBehaviour<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
-     where TRequest : notnull, IRequest<TResponse>
-     where TResponse : notnull
+    public sealed class LoggingPipelineBehaviour<TRequest, TResponse>
+    : IPipelineBehavior<TRequest, TResponse>
+    where TRequest : IRequest<TResponse>
     {
+        private static readonly TimeSpan SlowCommandThreshold =
+            TimeSpan.FromSeconds(5);
+
         private readonly ILogger<LoggingPipelineBehaviour<TRequest, TResponse>> _logger;
 
-        public LoggingPipelineBehaviour(ILogger<LoggingPipelineBehaviour<TRequest, TResponse>> logger)
+        public LoggingPipelineBehaviour(
+            ILogger<LoggingPipelineBehaviour<TRequest, TResponse>> logger)
         {
-            _logger = logger ?? throw new ArgumentNullException(nameof(logger));
+            _logger = logger;
         }
 
-        public async Task<TResponse> Handle(TRequest request, RequestHandlerDelegate<TResponse> next, CancellationToken cancellationToken)
+        public async Task<TResponse> Handle(
+            TRequest request,
+            RequestHandlerDelegate<TResponse> next,
+            CancellationToken cancellationToken)
         {
-            _logger.LogInformation($"Handling process started for {request}");
-            var metric = Stopwatch.StartNew();
-            var response = await next();
-            metric.Stop();
+            var commandName = typeof(TRequest).Name;
 
-            if (metric.Elapsed.Seconds > 5)
-                _logger.LogWarning($"Handling process took too much time. Maybe it needs to be refactored: {metric.Elapsed}");
+            using var activity = BasketActivitySource.Instance.StartActivity(
+                commandName,
+                ActivityKind.Internal);
 
-            _logger.LogInformation($"Handling process done for {request} and you have response {response}");
-            return response;
+            // Semantic tags (same idea as before, but centralized)
+            activity?.SetTag("messaging.system", "mediatr");
+            activity?.SetTag("command.name", commandName);
+            activity?.SetTag("layer", "application");
+
+            _logger.LogInformation(
+                "Command started: {CommandName}",
+                commandName);
+
+            var startTimestamp = Stopwatch.GetTimestamp();
+
+            try
+            {
+                var response = await next();
+
+                var elapsed = Stopwatch.GetElapsedTime(startTimestamp);
+
+                if (elapsed > SlowCommandThreshold)
+                {
+                    _logger.LogWarning(
+                        "Slow command detected: {CommandName}. Duration: {DurationMs} ms",
+                        commandName,
+                        elapsed.TotalMilliseconds);
+                }
+
+                activity?.SetStatus(ActivityStatusCode.Ok);
+
+                _logger.LogInformation(
+                    "Command completed: {CommandName}. Duration: {DurationMs} ms",
+                    commandName,
+                    elapsed.TotalMilliseconds);
+
+                return response;
+            }
+            catch (Exception ex)
+            {
+                var elapsed = Stopwatch.GetElapsedTime(startTimestamp);
+
+                activity?.SetStatus(ActivityStatusCode.Error, ex.Message);
+                activity?.AddException(ex);
+
+                _logger.LogError(
+                    ex,
+                    "Command failed: {CommandName}. Duration: {DurationMs} ms",
+                    commandName,
+                    elapsed.TotalMilliseconds);
+
+                throw;
+            }
         }
     }
 
-}
+ }

@@ -14,15 +14,26 @@ namespace VOEConsulting.Flame.BasketContext.Api
 
             // Add services to the container.
 
-            builder.Host.UseSerilog((ctx, lc) =>
+            builder.Host.UseSerilog((context, services, logger) =>
             {
-                lc.ReadFrom.Configuration(ctx.Configuration)
-                  .Enrich.WithProperty("service.environment", ctx.HostingEnvironment.EnvironmentName)
-                  .Enrich.WithProperty("service.version",
-                      typeof(Program).Assembly.GetName().Version?.ToString() ?? "unknown");
+                logger
+                    .ReadFrom.Configuration(context.Configuration)
+                    .ReadFrom.Services(services)
+
+                    .Enrich.WithProperty(
+                        "service.environment",
+                        context.HostingEnvironment.EnvironmentName)
+
+                    .Enrich.WithProperty(
+                        "service.version",
+                        typeof(Program).Assembly.GetName().Version?.ToString() ?? "unknown");
             });
 
+
             builder.Services.AddControllers();
+            
+            builder.Services.AddOpenApi();
+
             builder.Services.AddApplicationLayer();
             builder.Services.AddInfrastructureServices(builder.Configuration);
 
@@ -31,20 +42,25 @@ namespace VOEConsulting.Flame.BasketContext.Api
 
             var app = builder.Build();
 
-            app.UseCorrelationContext();
-
-            app.UseCustomSerilogRequestLogging();
+           
 
             // Apply migrations at runtime
             app.ApplyMigrations();
 
             // Configure the HTTP request pipeline.
 
+            if (app.Environment.IsDevelopment())
+            {
+                app.MapOpenApi();
+            }
+
             app.UseHttpsRedirection();
 
             app.UseAuthorization();
 
+            app.UseCorrelationContext();
 
+            app.UseCustomSerilogRequestLogging();
             app.MapControllers();
 
             app.Run();
