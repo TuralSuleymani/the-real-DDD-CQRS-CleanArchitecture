@@ -1,4 +1,6 @@
+using Serilog;
 using System.Reflection;
+using VOEConsulting.Flame.BasketContext.Api.Extensions;
 using VOEConsulting.Flame.BasketContext.Application;
 using VOEConsulting.Flame.BasketContext.Infrastructure;
 
@@ -12,6 +14,14 @@ namespace VOEConsulting.Flame.BasketContext.Api
 
             // Add services to the container.
 
+            builder.Host.UseSerilog((ctx, lc) =>
+            {
+                lc.ReadFrom.Configuration(ctx.Configuration)
+                  .Enrich.WithProperty("service.environment", ctx.HostingEnvironment.EnvironmentName)
+                  .Enrich.WithProperty("service.version",
+                      typeof(Program).Assembly.GetName().Version?.ToString() ?? "unknown");
+            });
+
             builder.Services.AddControllers();
             builder.Services.AddApplicationLayer();
             builder.Services.AddInfrastructureServices(builder.Configuration);
@@ -20,6 +30,10 @@ namespace VOEConsulting.Flame.BasketContext.Api
             builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(Assembly.GetExecutingAssembly()));
 
             var app = builder.Build();
+
+            app.UseCorrelationContext();
+
+            app.UseCustomSerilogRequestLogging();
 
             // Apply migrations at runtime
             app.ApplyMigrations();
