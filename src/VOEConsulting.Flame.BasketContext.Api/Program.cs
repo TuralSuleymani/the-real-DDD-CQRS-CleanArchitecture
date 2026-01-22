@@ -37,6 +37,10 @@ namespace VOEConsulting.Flame.BasketContext.Api
             builder.Services.AddApplicationLayer();
             builder.Services.AddInfrastructureServices(builder.Configuration);
 
+            builder.Services.AddObservability(
+                    configuration: builder.Configuration,
+                    environment: builder.Environment);
+
             // Register MediatR
             builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(Assembly.GetExecutingAssembly()));
 

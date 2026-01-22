@@ -14,6 +14,9 @@ namespace VOEConsulting.Flame.BasketContext.Application
 
             services.AddMediatR(configuration =>
             {
+                //metrics: measure EVERYTHING
+                configuration.AddOpenBehavior(typeof(CommandMetricsBehavior<,>));
+
                 configuration.RegisterServicesFromAssembly(typeof(ServiceCollectionExtensions).Assembly);
                 configuration.AddOpenBehavior(typeof(LoggingPipelineBehaviour<,>));
                 configuration.AddOpenBehavior(typeof(ExceptionHandlingPipelineBehavior<,>));
